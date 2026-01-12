@@ -1,0 +1,40 @@
+.site-footer {
+  width: 100%;
+  margin: 0;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  img {
+    max-width: 120px;
+  }
+}
+
+nav {
+  ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+  }
+  a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
