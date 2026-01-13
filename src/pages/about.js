@@ -3,19 +3,24 @@ import { Link, graphql, useStaticQuery } from 'gatsby';
 import MarkdownText from '../components/MarkdownText';
 import Layout from '../components/layout';
 import '../styles/about.scss';
+import CVSection from '../components/CVSection';
 
 const AboutPage = ({ data }) => {
   const aboutMe = data.contentfulAboutMe;
   return (
     <Layout>
-      <div className="about-me-container">
-        <img
-          src={aboutMe.profilePicture.url}
-          alt={aboutMe.name}
-          className="about-me-img"
-        />
+      <div className="about-me-page-container">
+        <div className="image-container">
+          <img
+            src={aboutMe.profilePicture.url}
+            alt={aboutMe.name}
+            className="about-me-img"
+          />
+          <h3>{aboutMe.name}</h3>
+          <CVSection />
+        </div>
         <div className="about-me">
-          <h1>{aboutMe.name}</h1>
+          <h1>Välkommen till min kreativa värld!</h1>
           <MarkdownText text={aboutMe.aboutMe.aboutMe} />
         </div>
       </div>

@@ -8,7 +8,7 @@ const IndexPage = ({ data }) => {
   const aboutMe = data.contentfulAboutMe;
   return (
     <Layout>
-      <div className="about-me-container">
+      <div className="about-me-startpage-container">
         <div className="image-container">
           <img
             src={aboutMe.profilePicture.url}
