@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Link, graphql } from 'gatsby';
+import MarkdownText from '../components/MarkdownText';
 import Layout from '../components/layout';
 import '../styles/index.scss';
 
@@ -15,7 +16,7 @@ const IndexPage = ({ data }) => {
         />
         <div className="about-me">
           <h1>{aboutMe.name}</h1>
-          <p>{aboutMe.summary.summary}</p>
+          <MarkdownText text={aboutMe.summary.summary} />
         </div>
       </div>
     </Layout>

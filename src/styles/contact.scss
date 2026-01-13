@@ -53,3 +53,38 @@ button {
     opacity: 0.6;
   }
 }
+
+.contact-form {
+  animation: fadeSlideIn 0.3s ease-out;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-confirmation {
+  max-width: 480px;
+  margin: 4rem auto;
+  text-align: center;
+
+  animation: fadeSlideIn 0.4s ease-out forwards;
+
+  h2 {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #555;
+  }
+}

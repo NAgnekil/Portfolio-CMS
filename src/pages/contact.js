@@ -1,18 +1,33 @@
 import * as React from 'react';
 import { Link, graphql, useStaticQuery } from 'gatsby';
+import MarkdownText from '../components/MarkdownText';
 import Layout from '../components/layout';
 import '../styles/contact.scss';
 
 const ContactPage = ({ data }) => {
-  const aboutMe = data.contentfulAboutMe;
+  const contactPageText =
+    data.contentfulAboutMe.childContentfulAboutMeContactPageTextTextNode
+      .contactPageText;
+  const [submitted, setSubmitted] = React.useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmitted(true);
+  };
+
+  if (submitted) {
+    return (
+      <div className="form-confirmation animate-in">
+        <h2>Meddelandet är på väg</h2>
+        <p>Tack för att du hörde av dig. Jag återkommer inom kort.</p>
+      </div>
+    );
+  }
   return (
     <Layout>
-      <form
-        className="contact-form"
-        action={`mailto:${aboutMe.eMail}`}
-        method="POST"
-        encType="text/plain"
-      >
+      <h1>Kontakt</h1>
+      <MarkdownText text={contactPageText} />
+      <form className="contact-form" onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name">Namn</label>
           <input type="text" id="name" name="name" required />
@@ -38,14 +53,8 @@ export const query = graphql`
   query AboutPageQuery {
     contentfulAboutMe {
       name
-      eMail
-      linkedIn
-      gitHub
-      aboutMe {
-        aboutMe
-      }
-      profilePicture {
-        url
+      childContentfulAboutMeContactPageTextTextNode {
+        contactPageText
       }
     }
   }

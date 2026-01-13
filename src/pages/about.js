@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Link, graphql, useStaticQuery } from 'gatsby';
+import MarkdownText from '../components/MarkdownText';
 import Layout from '../components/layout';
 import '../styles/about.scss';
 
@@ -15,7 +16,7 @@ const AboutPage = ({ data }) => {
         />
         <div className="about-me">
           <h1>{aboutMe.name}</h1>
-          <p>{aboutMe.aboutMe.aboutMe}</p>
+          <MarkdownText text={aboutMe.aboutMe.aboutMe} />
         </div>
       </div>
     </Layout>

@@ -1,0 +1,33 @@
+.markdown {
+  line-height: 1.6;
+  color: #161619;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 600;
+    margin: 1.5rem 0 0.5rem;
+  }
+
+  h5 {
+    font-size: 1rem;
+    color: #88a67e;
+  }
+
+  strong {
+    font-weight: 700;
+  }
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  ul,
+  ol {
+    padding-left: 1.2rem;
+    margin-bottom: 1rem;
+  }
+}
