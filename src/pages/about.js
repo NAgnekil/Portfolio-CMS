@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { Link, graphql } from 'gatsby';
+import { Link, graphql, useStaticQuery } from 'gatsby';
 import Layout from '../components/layout';
-import '../styles/index.scss';
+import '../styles/about.scss';
 
-const IndexPage = ({ data }) => {
+const AboutPage = ({ data }) => {
   const aboutMe = data.contentfulAboutMe;
   return (
     <Layout>
@@ -15,7 +15,7 @@ const IndexPage = ({ data }) => {
         />
         <div className="about-me">
           <h1>{aboutMe.name}</h1>
-          <p>{aboutMe.summary.summary}</p>
+          <p>{aboutMe.aboutMe.aboutMe}</p>
         </div>
       </div>
     </Layout>
@@ -23,11 +23,14 @@ const IndexPage = ({ data }) => {
 };
 
 export const query = graphql`
-  query HomePageQuery {
+  query AboutPageQuery {
     contentfulAboutMe {
       name
-      summary {
-        summary
+      eMail
+      linkedIn
+      gitHub
+      aboutMe {
+        aboutMe
       }
       profilePicture {
         url
@@ -38,4 +41,4 @@ export const query = graphql`
 
 export const Head = ({ data }) => <title>{data.contentfulAboutMe.name}</title>;
 
-export default IndexPage;
+export default AboutPage;

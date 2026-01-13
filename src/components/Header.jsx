@@ -34,11 +34,19 @@ const Header = () => {
 
         <nav>
           <ul>
-            {data.allContentfulNavigationLink.nodes.map((link) => (
-              <li key={link.slug}>
-                <Link to={link.slug}>{link.title}</Link>
-              </li>
-            ))}
+            {data.allContentfulNavigationLink.nodes.map((link) => {
+              if (link.slug && !link.slug.startsWith('http')) {
+                const path = link.slug.startsWith('/')
+                  ? link.slug
+                  : `/${link.slug}`;
+                return (
+                  <li key={link.slug}>
+                    <Link to={path}>{link.title}</Link>
+                  </li>
+                );
+              }
+              return null;
+            })}
           </ul>
         </nav>
       </div>

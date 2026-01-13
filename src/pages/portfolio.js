@@ -19,7 +19,7 @@ const PortfolioPage = () => {
   `);
   return (
     <Layout>
-      <h1>Portfolio Page</h1>
+      <h1>Projects Page</h1>
       <ul>
         {data.allContentfulDevelopmentPortfolioItem.nodes.map((item) => (
           <li>
@@ -32,6 +32,6 @@ const PortfolioPage = () => {
   );
 };
 
-export const Head = () => <title>Home Page</title>;
+export const Head = () => <title>Projects Page</title>;
 
 export default PortfolioPage;
