@@ -9,13 +9,16 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <div className="about-me-container">
-        <img
-          src={aboutMe.profilePicture.url}
-          alt={aboutMe.name}
-          className="about-me-img"
-        />
+        <div className="image-container">
+          <img
+            src={aboutMe.profilePicture.url}
+            alt={aboutMe.name}
+            className="about-me-img"
+          />
+          <h3>{aboutMe.name}</h3>
+        </div>
         <div className="about-me">
-          <h1>{aboutMe.name}</h1>
+          <h1>Välkommen till min kreativa värld!</h1>
           <MarkdownText text={aboutMe.summary.summary} />
         </div>
       </div>

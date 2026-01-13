@@ -2,9 +2,15 @@ html {
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: Poppins;
+  src: url('../assets/Poppins/Poppins-Regular.ttf') format('truetype');
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background-color: #fafafa;
   color: #333;
+  font-family: 'Poppins', sans-serif;
 }
