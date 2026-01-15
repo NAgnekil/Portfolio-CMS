@@ -11,11 +11,14 @@ const ProjectCard = ({ item }) => {
           <i>{item.subtitle}</i>
         </p>
       </div>
-      <img src={item.image.url} alt={item.title} />
+      {item?.image?.url && <img src={item.image.url} alt={item.title || ''} />}
       <p>{item.summary}</p>
-        <Link to={`/portfolio/${item.slug}/`} className="read-more-button-container">
-          Läs mer
-        </Link>
+      <Link
+        to={`/portfolio/${item.slug}/`}
+        className="read-more-button-container"
+      >
+        Läs mer
+      </Link>
     </div>
   );
 };

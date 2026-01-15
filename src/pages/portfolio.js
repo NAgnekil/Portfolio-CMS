@@ -111,10 +111,10 @@ const PortfolioPage = () => {
           </p>
         </div>
         <div className="photography-projects-items">
-          {data.allContentfulPhotographyPortfolioItem.nodes.map((item) => (
+          {data.allContentfulPhotojournalismPortfolioItem.nodes.map((item) => (
             <ProjectCard key={item.slug} item={item} />
           ))}
-          {data.allContentfulPhotojournalismPortfolioItem.nodes.map((item) => (
+          {data.allContentfulPhotographyPortfolioItem.nodes.map((item) => (
             <ProjectCard key={item.slug} item={item} />
           ))}
         </div>
