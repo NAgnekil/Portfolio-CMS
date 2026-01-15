@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link, graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import Layout from '../components/layout';
 import ProjectCard from '../components/ProjectCard';
 import '../styles/portfolio.scss';
@@ -16,6 +16,7 @@ const PortfolioPage = () => {
           image {
             url
           }
+          __typename
         }
       }
       allContentfulDesignPortfolioItem(sort: { order: DESC }) {
@@ -27,6 +28,31 @@ const PortfolioPage = () => {
           image {
             url
           }
+          __typename
+        }
+      }
+      allContentfulPhotographyPortfolioItem(sort: { order: DESC }) {
+        nodes {
+          slug
+          subtitle
+          title
+          summary
+          image {
+            url
+          }
+          __typename
+        }
+      }
+      allContentfulPhotojournalismPortfolioItem(sort: { order: DESC }) {
+        nodes {
+          slug
+          subtitle
+          title
+          summary
+          image {
+            url
+          }
+          __typename
         }
       }
     }
@@ -85,9 +111,12 @@ const PortfolioPage = () => {
           </p>
         </div>
         <div className="photography-projects-items">
-          {/* {data.allContentfulDesignPortfolioItem.nodes.map((item) => (
+          {data.allContentfulPhotographyPortfolioItem.nodes.map((item) => (
             <ProjectCard key={item.slug} item={item} />
-          ))} */}
+          ))}
+          {data.allContentfulPhotojournalismPortfolioItem.nodes.map((item) => (
+            <ProjectCard key={item.slug} item={item} />
+          ))}
         </div>
       </div>
     </Layout>

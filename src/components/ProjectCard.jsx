@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'gatsby';
 import '../styles/project-card.scss';
 
 const ProjectCard = ({ item }) => {
@@ -12,11 +13,9 @@ const ProjectCard = ({ item }) => {
       </div>
       <img src={item.image.url} alt={item.title} />
       <p>{item.summary}</p>
-      <div className="read-more-button-container">
-        <a href={`/portfolio/${item.slug}`} className="read-more-button">
+        <Link to={`/portfolio/${item.slug}/`} className="read-more-button-container">
           Läs mer
-        </a>
-      </div>
+        </Link>
     </div>
   );
 };
