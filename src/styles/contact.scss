@@ -1,10 +1,30 @@
-.contact-form {
-  max-width: 480px;
-  margin: 0 auto;
+.contact-page-container {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+}
 
+.text-container {
+  max-width: 45%;
+  margin-left: 2rem;
+  .connect-on-linkedin {
+    display: flex;
+    flex-direction: column;
+    margin-top: 4rem;
+    .linkedin-logo {
+      width: 100px;
+      margin-top: -10px;
+      margin-left: -10px;
+    }
+  }
+}
+
+.contact-form {
+  width: 45%;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
+  margin-bottom: 3rem;
 }
 
 .form-group {
