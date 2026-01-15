@@ -13,8 +13,9 @@
   }
 
   h5 {
-    font-size: 1rem;
-    color: #88a67e;
+    font-size: 1.3rem;
+    color: #657c5d;
+    margin-bottom: 0;
   }
 
   strong {
@@ -23,6 +24,24 @@
 
   p {
     margin-bottom: 1rem;
+    margin-top: 0.2rem;
+  }
+
+  p em {
+    display: inline; // behåll inline
+  }
+
+  p em::before {
+    content: '\A'; // newline
+    white-space: pre; // gör att \A blir en radbrytning
+  }
+
+  p em:first-of-type::before {
+    content: none;
+  }
+
+  p strong {
+    display: block;
   }
 
   ul,

@@ -1,38 +1,51 @@
 // src/components/layouts/DevelopmentDesignLayout.jsx
 import React from 'react';
 import MarkdownText from '../MarkdownText';
+import '../../styles/development-design-layout.scss';
 
 const DevelopmentDesignLayout = ({ item }) => {
   return (
-    <article className="portfolio-item">
+    <article className="development-design-portfolio-item">
       <header>
         <h1>{item.title}</h1>
-        <h2>{item.subtitle}</h2>
+        <h2 className="subtitle">
+          <i>{item.subtitle}</i>
+        </h2>
       </header>
 
-      <div className="main-image">
-        <img src={item.image.url} alt={item.title} />
+      <div className="divider" />
+
+      <div className="main-image-section">
+        <div className="main-image">
+          <img src={item.image.url} alt={item.title} />
+        </div>
+        <p className="summary">
+          <i>{item.summary}</i>
+        </p>
       </div>
+
+      <div className="divider" />
 
       <div className="content">
         <MarkdownText
           text={
-            item.description?.description ||
-            item.description?.childMarkdownRemark?.html
+            item.description?.description || 'Ingen beskrivning tillgänglig.'
           }
         />
 
         {item.techniquesUsed && (
           <div className="techniques">
-            <h3>Tekniker & Verktyg</h3>
-            <p>{item.techniquesUsed}</p>
+            {item.techniquesUsed.map((tech, index) => (
+              <p key={index}>
+                <span className="technique-brick">{tech}</span>
+              </p>
+            ))}
           </div>
         )}
       </div>
 
       {item.additionalMedia && item.additionalMedia.length > 0 && (
         <div className="gallery">
-          <h3>Fler bilder</h3>
           <div className="media-grid">
             {item.additionalMedia.map((media, index) => (
               <img
