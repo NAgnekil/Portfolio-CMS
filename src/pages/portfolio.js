@@ -14,7 +14,12 @@ const PortfolioPage = () => {
           title
           summary
           image {
-            url
+            gatsbyImageData(
+              width: 350
+              layout: CONSTRAINED
+              placeholder: BLURRED
+              formats: [AUTO, WEBP]
+            )
           }
           __typename
         }
@@ -26,7 +31,12 @@ const PortfolioPage = () => {
           title
           summary
           image {
-            url
+            gatsbyImageData(
+              width: 350
+              layout: CONSTRAINED
+              placeholder: BLURRED
+              formats: [AUTO, WEBP]
+            )
           }
           __typename
         }
@@ -38,7 +48,12 @@ const PortfolioPage = () => {
           title
           summary
           image {
-            url
+            gatsbyImageData(
+              width: 350
+              layout: CONSTRAINED
+              placeholder: BLURRED
+              formats: [AUTO, WEBP]
+            )
           }
           __typename
         }
@@ -50,7 +65,12 @@ const PortfolioPage = () => {
           title
           summary
           image {
-            url
+            gatsbyImageData(
+              width: 350
+              layout: CONSTRAINED
+              placeholder: BLURRED
+              formats: [AUTO, WEBP]
+            )
           }
           __typename
         }

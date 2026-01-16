@@ -1,6 +1,7 @@
 // src/components/layouts/DevelopmentDesignLayout.jsx
 import React from 'react';
 import MarkdownText from '../MarkdownText';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import '../../styles/development-design-layout.scss';
 
 const DevelopmentDesignLayout = ({ item }) => {
@@ -16,9 +17,15 @@ const DevelopmentDesignLayout = ({ item }) => {
       <div className="divider" />
 
       <div className="main-image-section">
-        <div className="main-image">
-          <img src={item.image.url} alt={item.title} />
-        </div>
+        {item.image?.gatsbyImageData && (
+          <div className="main-image">
+            <GatsbyImage
+              image={item.image.gatsbyImageData}
+              alt={item.title || 'Projektbild'}
+              loading="lazy"
+            />
+          </div>
+        )}
         <p className="summary">
           <i>{item.summary}</i>
         </p>
@@ -47,13 +54,17 @@ const DevelopmentDesignLayout = ({ item }) => {
       {item.additionalMedia && item.additionalMedia.length > 0 && (
         <div className="gallery">
           <div className="media-grid">
-            {item.additionalMedia.map((media, index) => (
-              <img
-                key={index}
-                src={media.url}
-                alt={`${item.title} - Bild ${index + 1}`}
-              />
-            ))}
+            {item.additionalMedia.map(
+              (media, index) =>
+                media?.gatsbyImageData && (
+                  <GatsbyImage
+                    key={index}
+                    image={media.gatsbyImageData}
+                    alt={`${item.title || 'Projekt'} - Bild ${index + 1}`}
+                    loading="lazy"
+                  />
+                )
+            )}
           </div>
         </div>
       )}

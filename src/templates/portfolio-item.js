@@ -62,7 +62,12 @@ export const query = graphql`
       subtitle
       summary
       image {
-        url
+        gatsbyImageData(
+          width: 1200
+          layout: CONSTRAINED
+          placeholder: BLURRED
+          formats: [AUTO, WEBP, AVIF]
+        )
       }
       description {
         description
@@ -70,7 +75,12 @@ export const query = graphql`
       slug
       techniquesUsed
       additionalMedia {
-        url
+        gatsbyImageData(
+          width: 400
+          layout: CONSTRAINED
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
       }
       order
     }
@@ -79,7 +89,12 @@ export const query = graphql`
       subtitle
       summary
       image {
-        url
+        gatsbyImageData(
+          width: 1200
+          layout: CONSTRAINED
+          placeholder: BLURRED
+          formats: [AUTO, WEBP, AVIF]
+        )
       }
       description {
         description
@@ -87,7 +102,12 @@ export const query = graphql`
       slug
       techniquesUsed
       additionalMedia {
-        url
+        gatsbyImageData(
+          width: 400
+          layout: CONSTRAINED
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
       }
       order
     }
@@ -96,7 +116,12 @@ export const query = graphql`
       subtitle
       summary
       image {
-        url
+        gatsbyImageData(
+          width: 1200
+          layout: CONSTRAINED
+          placeholder: BLURRED
+          formats: [AUTO, WEBP, AVIF]
+        )
       }
       description {
         description
@@ -104,7 +129,12 @@ export const query = graphql`
       slug
       techniquesUsed
       additionalMedia {
-        url
+        gatsbyImageData(
+          width: 400
+          layout: CONSTRAINED
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
       }
       order
     }
@@ -115,7 +145,12 @@ export const query = graphql`
       subtitle
       summary
       image {
-        url
+        gatsbyImageData(
+          width: 1200
+          layout: CONSTRAINED
+          placeholder: BLURRED
+          formats: [AUTO, WEBP, AVIF]
+        )
       }
       description {
         description
@@ -123,7 +158,12 @@ export const query = graphql`
       slug
       techniquesUsed
       additionalMedia {
-        url
+        gatsbyImageData(
+          width: 400
+          layout: CONSTRAINED
+          placeholder: DOMINANT_COLOR
+          formats: [AUTO, WEBP]
+        )
       }
       order
     }

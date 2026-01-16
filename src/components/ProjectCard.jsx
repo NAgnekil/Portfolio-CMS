@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import '../styles/project-card.scss';
 
 const ProjectCard = ({ item }) => {
@@ -11,7 +12,14 @@ const ProjectCard = ({ item }) => {
           <i>{item.subtitle}</i>
         </p>
       </div>
-      {item?.image?.url && <img src={item.image.url} alt={item.title || ''} />}
+      {item.image?.gatsbyImageData && (
+        <GatsbyImage
+          image={item.image.gatsbyImageData}
+          alt={item.title}
+          className="project-image"
+          loading="lazy"
+        />
+      )}
       <p>{item.summary}</p>
       <Link
         to={`/portfolio/${item.slug}/`}
