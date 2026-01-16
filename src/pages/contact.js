@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link, graphql, useStaticQuery } from 'gatsby';
+import { Link, graphql } from 'gatsby';
 import MarkdownText from '../components/MarkdownText';
 import Layout from '../components/layout';
 import '../styles/contact.scss';
