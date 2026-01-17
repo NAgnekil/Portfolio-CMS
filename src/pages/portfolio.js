@@ -80,7 +80,43 @@ const PortfolioPage = () => {
   return (
     <Layout>
       <h1>Projekt</h1>
-      <div className="development-projects">
+      <div className="intro-text-container">
+        <p className="intro-text">
+          Välkommen till min portfölj! Här hittar du ett urval av mina projekt
+          inom frontend-utveckling, UX/UI-design, förpackningsdesign, fotografi
+          och bildjournalism. Oavsett om det handlar om att bygga
+          användarvänliga digitala gränssnitt, formge genomtänkta
+          förpackningslösningar eller dokumentera människor och berättelser,
+          genomsyras alla projekt av samma fokus på kvalitet, funktion och
+          visuellt uttryck - alla med grund i min passion för kreativitet.
+        </p>
+        <p>
+          Utforska mina arbeten nedan för att se hur jag kombinerar estetik med
+          funktionalitet för att skapa engagerande och effektiva lösningar. Du
+          kan utforska varje kategori separat eller scrolla vidare för att ta
+          del av helheten.
+        </p>
+      </div>
+      <nav className="project-nav">
+        <a href="#frontend">
+          <span className="title">Frontendutveckling</span>
+          <span className="meta">Digitala lösningar & interaktion</span>
+        </a>
+
+        <a href="#packaging">
+          <span className="title">Förpackningsdesign</span>
+          <span className="meta">Form, material & varumärke</span>
+        </a>
+
+        <a href="#photography">
+          <span className="title">Fotografi</span>
+          <span className="meta">Dokumentärt & kommersiellt</span>
+        </a>
+      </nav>
+
+      <div className="divider" />
+
+      <div className="development-projects" id="frontend">
         <div className="development-projects-intro">
           <h2>Frontend-utveckling och UX/UI</h2>
           <p className="intro-text">
@@ -100,7 +136,7 @@ const PortfolioPage = () => {
         </div>
       </div>
       <span className="divider" />
-      <div className="design-projects">
+      <div className="design-projects" id="packaging">
         <div className="design-projects-intro">
           <h2>Förpackningsdesign</h2>
           <p className="intro-text">
@@ -119,7 +155,7 @@ const PortfolioPage = () => {
         </div>
       </div>
       <span className="divider" />
-      <div className="photography-projects">
+      <div className="photography-projects" id="photography">
         <div className="photography-projects-intro">
           <h2>Fotografi</h2>
           <p className="intro-text">
