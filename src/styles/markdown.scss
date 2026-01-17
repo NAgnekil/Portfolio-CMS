@@ -28,12 +28,12 @@
   }
 
   p em {
-    display: inline; // behåll inline
+    display: inline;
   }
 
   p em::before {
-    content: '\A'; // newline
-    white-space: pre; // gör att \A blir en radbrytning
+    content: '\A';
+    white-space: pre;
   }
 
   p em:first-of-type::before {

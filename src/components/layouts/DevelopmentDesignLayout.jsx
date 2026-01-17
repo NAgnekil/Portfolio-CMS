@@ -1,10 +1,25 @@
-// src/components/layouts/DevelopmentDesignLayout.jsx
 import React from 'react';
 import MarkdownText from '../MarkdownText';
+import ImageCarousel from '../ImageCarousel';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import '../../styles/development-design-layout.scss';
 
 const DevelopmentDesignLayout = ({ item }) => {
+  if (!item) {
+    console.log('⚠️ Item is null or undefined');
+    return <div>Inget att visa</div>;
+  }
+
+  const carouselImages = [item.image, ...(item.additionalMedia || [])].filter(
+    (media) => {
+      const hasMedia = media?.url || media?.gatsbyImageData;
+      if (!hasMedia) {
+        console.log('Filtered out media:', media);
+      }
+      return hasMedia;
+    }
+  );
+
   return (
     <article className="development-design-portfolio-item">
       <header>
@@ -51,21 +66,9 @@ const DevelopmentDesignLayout = ({ item }) => {
         )}
       </div>
 
-      {item.additionalMedia && item.additionalMedia.length > 0 && (
-        <div className="gallery">
-          <div className="media-grid">
-            {item.additionalMedia.map(
-              (media, index) =>
-                media?.gatsbyImageData && (
-                  <GatsbyImage
-                    key={index}
-                    image={media.gatsbyImageData}
-                    alt={`${item.title || 'Projekt'} - Bild ${index + 1}`}
-                    loading="lazy"
-                  />
-                )
-            )}
-          </div>
+      {carouselImages.length > 0 && (
+        <div className="project-carousel">
+          <ImageCarousel images={carouselImages} />
         </div>
       )}
     </article>

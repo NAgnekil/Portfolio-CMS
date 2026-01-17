@@ -1,4 +1,3 @@
-// src/components/layouts/PhotojournalismLayout.jsx
 import React from 'react';
 import MarkdownText from '../MarkdownText';
 

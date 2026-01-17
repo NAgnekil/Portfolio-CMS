@@ -1,4 +1,3 @@
-// src/templates/portfolio-item.js
 import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/layout';
@@ -54,7 +53,6 @@ const PortfolioItemTemplate = ({ data, pageContext }) => {
   return <Layout>{renderLayout()}</Layout>;
 };
 
-// GraphQL query för alla typer
 export const query = graphql`
   query ($slug: String!) {
     developmentItem: contentfulDevelopmentPortfolioItem(slug: { eq: $slug }) {
