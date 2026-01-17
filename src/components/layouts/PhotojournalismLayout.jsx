@@ -1,40 +1,74 @@
 import React from 'react';
 import MarkdownText from '../MarkdownText';
+import ImageCarousel from '../ImageCarousel';
+import { GatsbyImage } from 'gatsby-plugin-image';
+import '../../styles/photojournalism-layout.scss';
 
 const PhotojournalismLayout = ({ item }) => {
+  if (!item) {
+    console.log('⚠️ Item is null or undefined');
+    return <div>Inget att visa</div>;
+  }
+
+  const carouselImages = [item.image, ...(item.additionalMedia || [])].filter(
+    (media) => {
+      const hasMedia = media?.url || media?.gatsbyImageData;
+      if (!hasMedia) {
+        console.log('Filtered out media:', media);
+      }
+      return hasMedia;
+    }
+  );
+
   return (
-    <article className="photojournalism-item">
+    <article className="photojournalism-portfolio-item">
       <header>
         <h1>{item.title}</h1>
-        <h2 className="subtitle">{item.subtitle}</h2>
+        <h2 className="subtitle">
+          <i>{item.subtitle}</i>
+        </h2>
       </header>
 
-      <div className="featured-image">
-        <img src={item.image.url} alt={item.title} />
-      </div>
+      <div className="divider" />
 
-      <div className="story-content">
-        {item.summary && <p className="summary">{item.summary}</p>}
-        {item.description?.description && (
-          <MarkdownText text={item.description?.description} />
-        )}
-        {item.techniquesUsed && (
-          <div className="technical-notes">
-            <h3>Teknisk information</h3>
-            <p>{item.techniquesUsed}</p>
+      <div className="main-image-section">
+        {item.image?.gatsbyImageData && (
+          <div className="main-image">
+            <GatsbyImage
+              image={item.image.gatsbyImageData}
+              alt={item.title || 'Projektbild'}
+              loading="lazy"
+            />
           </div>
         )}
+        <p className="summary">
+          <i>{item.summary}</i>
+        </p>
       </div>
 
-      {item.additionalMedia && item.additionalMedia.length > 0 && (
-        <div className="story-gallery">
-          <div className="story-grid">
-            {item.additionalMedia?.map((media, index) => (
-              <div key={index} className="story-item">
-                <img src={media.url} alt={`Berättelsebild ${index + 1}`} />
-              </div>
+      <div className="divider" />
+
+      <div className="content">
+        <MarkdownText
+          text={
+            item.description?.description || 'Ingen beskrivning tillgänglig.'
+          }
+        />
+
+        {item.techniquesUsed && (
+          <div className="techniques">
+            {item.techniquesUsed.map((tech, index) => (
+              <p key={index}>
+                <span className="technique-brick">{tech}</span>
+              </p>
             ))}
           </div>
+        )}
+      </div>
+
+      {carouselImages.length > 0 && (
+        <div className="project-carousel">
+          <ImageCarousel images={carouselImages} />
         </div>
       )}
     </article>
