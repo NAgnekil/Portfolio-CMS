@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import '../styles/header.scss';
 
@@ -20,6 +20,32 @@ const Header = () => {
     }
   `);
 
+  const [menuOpen, setMenuOpen] = useState(false);
+  const navRef = useRef(null);
+  const hamburgerRef = useRef(null);
+
+  const handleHamburgerClick = () => {
+    setMenuOpen((open) => !open);
+  };
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    function handleClickOutside(event) {
+      if (
+        navRef.current &&
+        !navRef.current.contains(event.target) &&
+        hamburgerRef.current &&
+        !hamburgerRef.current.contains(event.target)
+      ) {
+        setMenuOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [menuOpen]);
+
   return (
     <header className="site-header">
       <div className="header-inner">
@@ -32,7 +58,19 @@ const Header = () => {
           </Link>
         </div>
 
-        <nav>
+        <button
+          className={`hamburger${menuOpen ? ' open' : ''}`}
+          aria-label="Toggle menu"
+          aria-expanded={menuOpen}
+          onClick={handleHamburgerClick}
+          ref={hamburgerRef}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+
+        <nav className={`main-nav ${menuOpen ? ' open' : ''}`} ref={navRef}>
           <ul>
             {data.allContentfulNavigationLink.nodes.map((link) => {
               if (link.slug && !link.slug.startsWith('http')) {
@@ -41,7 +79,9 @@ const Header = () => {
                   : `/${link.slug}`;
                 return (
                   <li key={link.slug}>
-                    <Link to={path}>{link.title}</Link>
+                    <Link to={path} onClick={() => setMenuOpen(false)}>
+                      {link.title}
+                    </Link>
                   </li>
                 );
               }

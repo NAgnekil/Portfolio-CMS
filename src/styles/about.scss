@@ -22,4 +22,21 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
   }
+  @media screen and (max-width: 799px) {
+    flex-direction: column;
+    .cv-section {
+      max-width: 90%;
+      .cv-buttons {
+        .cv-button {
+          width: 90%;
+          height: 36px;
+          font-size: 1.5rem;
+        }
+      }
+    }
+    .about-me {
+      max-width: 90%;
+      margin: 0 1.5rem;
+    }
+  }
 }

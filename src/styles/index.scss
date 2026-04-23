@@ -22,4 +22,13 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
   }
+  @media screen and (max-width: 779px) {
+    flex-direction: column;
+    .about-me {
+      align-self: center;
+      margin-left: 0;
+      max-width: 90%;
+      text-align: center;
+    }
+  }
 }
