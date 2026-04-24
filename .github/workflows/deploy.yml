@@ -26,7 +26,7 @@ jobs:
         run: npm install
 
       - name: Build Gatsby site
-        run: npm run build # ← detta kör "gatsby build" enligt din package.json
+        run: npm run build
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
