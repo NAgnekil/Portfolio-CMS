@@ -26,7 +26,7 @@ const ContactPage = ({ data }) => {
   }
   return (
     <Layout>
-      <h1>Kontakt</h1>
+      <h1>Kontakta mig</h1>
       <div className="contact-page-container">
         <form className="contact-form" onSubmit={handleSubmit}>
           <div className="form-group">
