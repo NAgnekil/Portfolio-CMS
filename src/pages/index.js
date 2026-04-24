@@ -9,6 +9,9 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <div className="about-me-startpage-container">
+        <p style="background: yellow; font-size: 2rem;">
+          🔵 TEST – UPPDATERING KLOCKAN 12:14 🔵
+        </p>
         <div className="image-container">
           <img
             src={aboutMe.profilePicture.url}
